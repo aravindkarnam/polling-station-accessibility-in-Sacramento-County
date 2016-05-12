@@ -1,0 +1,249 @@
+MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n, r;
+
+CREATE (Parking_Area:Category {name:"Parking Area"})
+CREATE (Parking_Area_SUB_1:SubCategory {name:"Default"})
+CREATE (Parking_Area_SUB_2:SubCategory {name:"Parking Mitigation"})
+CREATE (Parking_Area_SUB_3:SubCategory {name:"Drop Off Zone"})
+CREATE (Parking_Area_SUB_1_Q1:Question:Boolean {name:"Is there a parking lot on the property?"})
+CREATE (Parking_Area_SUB_1_Q2:Question:Boolean {name:"What is the total number of parking spaces in the parking lot?"})
+CREATE (Parking_Area_SUB_1_Q3:Question:Boolean {name:"Are there sufficient number of Van accessible parking spaces for the size of parking lot?"})
+CREATE (Parking_Area_SUB_2_Q1:Question:Boolean {name:"Need cone/sign to identify accessible space?"})
+CREATE (Parking_Area_SUB_2_Q2:Question:Boolean {name:"Cone off space?"})
+CREATE (Parking_Area_SUB_2_Q3:Question:Boolean {name:"Cone off aisle?"})
+CREATE (Parking_Area_SUB_3_Q1:Question:Boolean {name:"Is there a vehicle pull up space 8 feet wide by a minimum 20 feet long?"})
+CREATE (Parking_Area_SUB_3_Q2:Question:Boolean {name:"Is the vehicle pull up space level with a slope no higher than 2% in any direction?"})
+CREATE (Parking_Area_SUB_3_Q3:Question:Boolean {name:"Is there a 5' wide access aisle for the full length of the drop off zone to allow voters to exit a vehicle or wait for pick up? (20 feet long for drop-off zones constructed prior to 1/1/2014)"})
+
+CREATE
+  (Parking_Area_SUB_1)-[:CHILD_OF]->(Parking_Area),
+  (Parking_Area_SUB_1_Q1)-[:CHILD_OF]->(Parking_Area_SUB_1),
+  (Parking_Area_SUB_1_Q2)-[:CHILD_OF]->(Parking_Area_SUB_1),
+  (Parking_Area_SUB_1_Q3)-[:CHILD_OF]->(Parking_Area_SUB_1),
+  (Parking_Area_SUB_2)-[:CHILD_OF]->(Parking_Area),
+  (Parking_Area_SUB_2_Q1)-[:CHILD_OF]->(Parking_Area_SUB_2),
+  (Parking_Area_SUB_2_Q2)-[:CHILD_OF]->(Parking_Area_SUB_2),
+  (Parking_Area_SUB_2_Q3)-[:CHILD_OF]->(Parking_Area_SUB_2),
+  (Parking_Area_SUB_3)-[:CHILD_OF]->(Parking_Area),
+  (Parking_Area_SUB_3_Q1)-[:CHILD_OF]->(Parking_Area_SUB_3),
+  (Parking_Area_SUB_3_Q2)-[:CHILD_OF]->(Parking_Area_SUB_3),
+  (Parking_Area_SUB_3_Q3)-[:CHILD_OF]->(Parking_Area_SUB_3)
+	
+CREATE (Path_Of_Travel:Category {name:"Path of Travel"})
+CREATE (Path_Of_Travel_SUB_1:SubCategory {name:"Parking"})
+CREATE (Path_Of_Travel_SUB_2:SubCategory {name:"Parking Path Mitigation"})
+CREATE (Path_Of_Travel_SUB_3:SubCategory {name:"Public Transportation"})
+CREATE (Path_Of_Travel_SUB_1_Q1:Question:Boolean {name:"Location of the path of travel"})
+CREATE (Path_Of_Travel_SUB_1_Q2:Question:Boolean {name:"Is the predominate path of travel to the voting area free of steps?"})
+CREATE (Path_Of_Travel_SUB_1_Q3:Question:Boolean {name:"If no to question 1, is there an alternate path of travel available to the voting area that is free of steps?"})
+CREATE (Path_Of_Travel_SUB_2_Q1:Question:Boolean {name:"Temporary ramp(s) are needed to cover steps"})
+CREATE (Path_Of_Travel_SUB_2_Q2:Question:Boolean {name:"Need mat(s) to cover grate(s)"})
+CREATE (Path_Of_Travel_SUB_2_Q3:Question:Boolean {name:"Directional signage needed for site set-up"})
+CREATE (Path_Of_Travel_SUB_3_Q1:Question:Boolean {name:"Location of the path of travel:"})
+CREATE (Path_Of_Travel_SUB_3_Q2:Question:Boolean {name:"Is the predominate path of travel to the voting area free of steps?"})
+CREATE (Path_Of_Travel_SUB_3_Q3:Question:Boolean {name:"If no to question 1, is there an alternate path of travel available to the voting area that is free of steps?"})
+
+CREATE
+  (Path_Of_Travel_SUB_1)-[:CHILD_OF]->(Path_Of_Travel),
+  (Path_Of_Travel_SUB_1_Q1)-[:CHILD_OF]->(Path_Of_Travel_SUB_1),
+  (Path_Of_Travel_SUB_1_Q2)-[:CHILD_OF]->(Path_Of_Travel_SUB_1),
+  (Path_Of_Travel_SUB_1_Q3)-[:CHILD_OF]->(Path_Of_Travel_SUB_1),
+  (Path_Of_Travel_SUB_2)-[:CHILD_OF]->(Path_Of_Travel),
+  (Path_Of_Travel_SUB_2_Q1)-[:CHILD_OF]->(Path_Of_Travel_SUB_2),
+  (Path_Of_Travel_SUB_2_Q2)-[:CHILD_OF]->(Path_Of_Travel_SUB_2),
+  (Path_Of_Travel_SUB_2_Q3)-[:CHILD_OF]->(Path_Of_Travel_SUB_2),
+  (Path_Of_Travel_SUB_3)-[:CHILD_OF]->(Path_Of_Travel),
+  (Path_Of_Travel_SUB_3_Q1)-[:CHILD_OF]->(Path_Of_Travel_SUB_3),
+  (Path_Of_Travel_SUB_3_Q2)-[:CHILD_OF]->(Path_Of_Travel_SUB_3),
+  (Path_Of_Travel_SUB_3_Q3)-[:CHILD_OF]->(Path_Of_Travel_SUB_3)
+  
+CREATE (Doorways:Category {name:"Doorways"})
+CREATE (Doorways_SUB_1:SubCategory {name:"Default"})
+CREATE (Doorways_SUB_2:SubCategory {name:"Mitigation for Doorway"})
+CREATE (Doorways_SUB_1_Q1:Question:Boolean {name:"Total Number of Doors, & Door 1 Location/Description."})
+CREATE (Doorways_SUB_1_Q2:Question:Boolean {name:"Is there 32 feet of clear width at the door when the door is open to 90 degrees?"})
+CREATE (Doorways_SUB_1_Q3:Question:Boolean {name:"If double doors, is there at least 32\" of clear width on one door?"})
+CREATE (Doorways_SUB_2_Q1:Question:Boolean {name:"Prop door open"})
+CREATE (Doorways_SUB_2_Q2:Question:Boolean {name:"Threshold ramp(s) needed"})
+CREATE (Doorways_SUB_2_Q3:Question:Boolean {name:"Accessible modifications needed for door hardware: grip(s) needed"})
+
+CREATE
+  (Doorways_SUB_1)-[:CHILD_OF]->(Doorways),
+  (Doorways_SUB_1_Q1)-[:CHILD_OF]->(Doorways_SUB_1),
+  (Doorways_SUB_1_Q2)-[:CHILD_OF]->(Doorways_SUB_1),
+  (Doorways_SUB_1_Q3)-[:CHILD_OF]->(Doorways_SUB_1),
+  (Doorways_SUB_2)-[:CHILD_OF]->(Doorways),
+  (Doorways_SUB_2_Q1)-[:CHILD_OF]->(Doorways_SUB_2),
+  (Doorways_SUB_2_Q2)-[:CHILD_OF]->(Doorways_SUB_2),
+  (Doorways_SUB_2_Q3)-[:CHILD_OF]->(Doorways_SUB_2)
+	
+CREATE (Hallways:Category {name:"Hallways"})
+CREATE (Hallways_SUB_1:SubCategory {name:"Default"})
+CREATE (Hallways_SUB_2:SubCategory {name:"Mitigation for Hallways"})
+CREATE (Hallways_SUB_1_Q1:Question:Boolean {name:"Is there an accessible path of travel from the entrance to the voting area that is free of steps?"})
+CREATE (Hallways_SUB_1_Q2:Question:Boolean {name:"Does the path of travel have a cross slope that is 2% or less?"})
+CREATE (Hallways_SUB_1_Q3:Question:Boolean {name:"Are changes in level from 0.25\" to 0.5\" high beveled?"})
+CREATE (Hallways_SUB_2_Q1:Question:Boolean {name:"Non-slip mat(s) needed"})
+CREATE (Hallways_SUB_2_Q2:Question:Boolean {name:"Cones or other detectable barriers needed"})
+CREATE (Hallways_SUB_2_Q3:Question:Boolean {name:"Threshold ramp(s) needed for small change in level"})
+
+CREATE
+  (Hallways_SUB_1)-[:CHILD_OF]->(Hallways),
+  (Hallways_SUB_1_Q1)-[:CHILD_OF]->(Hallways_SUB_1),
+  (Hallways_SUB_1_Q2)-[:CHILD_OF]->(Hallways_SUB_1),
+  (Hallways_SUB_1_Q3)-[:CHILD_OF]->(Hallways_SUB_1),
+  (Hallways_SUB_2)-[:CHILD_OF]->(Hallways),
+  (Hallways_SUB_2_Q1)-[:CHILD_OF]->(Hallways_SUB_2),
+  (Hallways_SUB_2_Q2)-[:CHILD_OF]->(Hallways_SUB_2),
+  (Hallways_SUB_2_Q3)-[:CHILD_OF]->(Hallways_SUB_2)
+  
+CREATE (PollingStation_1:PollingStation {id: "1",
+	name: "American Lakes Elementary School",
+	address: "2800 Stonecreek Dr",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "18351",
+	facilityType: "",
+	latitude: "38.6166813987",
+	longitude: "-121.493687077",
+	surveyCompletedBy: "MH/MJ",
+	surveyDate: "April 21, 2015",
+	generalTerrain: "Hilly",
+	finalAccessibility: ""})
+	
+CREATE
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_1_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_1_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_1_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_2_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_2_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_2_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_3_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_3_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Parking_Area_SUB_3_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_1_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_1_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_1_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_2_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_2_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_2_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_3_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_3_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Path_Of_Travel_SUB_3_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Doorways_SUB_1_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Doorways_SUB_1_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Doorways_SUB_1_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Doorways_SUB_2_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Doorways_SUB_2_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Doorways_SUB_2_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Hallways_SUB_1_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Hallways_SUB_1_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Hallways_SUB_1_Q3),
+  (PollingStation_1)-[:SURVEYED]->(Hallways_SUB_2_Q1),
+  (PollingStation_1)-[:SURVEYED]->(Hallways_SUB_2_Q2),
+  (PollingStation_1)-[:SURVEYED]->(Hallways_SUB_2_Q3)
+  
+CREATE (PollingStation_2:PollingStation {ID: "2",
+	name: "Antelope Crossing Middle School",
+	address: "9200 Palmerson Dr",
+	city: "Antelope",
+	county: "Sacramento",
+	precintNumber: "22090",
+	facilityType: "",
+	latitude: "38.7177723911",
+	longitude: "-121.340532941",
+	surveyCompletedBy: "MH and MJ",
+	surveyDate: "March 30, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})  
+	
+CREATE
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_1_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_1_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_1_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_2_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_2_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_2_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_3_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_3_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Parking_Area_SUB_3_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_1_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_1_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_1_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_2_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_2_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_2_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_3_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_3_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Path_Of_Travel_SUB_3_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Doorways_SUB_1_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Doorways_SUB_1_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Doorways_SUB_1_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Doorways_SUB_2_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Doorways_SUB_2_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Doorways_SUB_2_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Hallways_SUB_1_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Hallways_SUB_1_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Hallways_SUB_1_Q3),
+  (PollingStation_2)-[:SURVEYED]->(Hallways_SUB_2_Q1),
+  (PollingStation_2)-[:SURVEYED]->(Hallways_SUB_2_Q2),
+  (PollingStation_2)-[:SURVEYED]->(Hallways_SUB_2_Q3)
+  
+CREATE (PollingStation_3:PollingStation {ID: "802",
+	name: "Bowling Green Elementary School",
+	address: "4211 Turnbridge Dr",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "0045878",
+	facilityType: "",
+	latitude: "",
+	longitude: "",
+	surveyCompletedBy: "YB/KH",
+	surveyDate: "August 13, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})
+	
+CREATE (PollingStation_4:PollingStation {ID: "4",
+	name: "Sacramento High Charter School",
+	address: "2315 34th Street",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "42883",
+	facilityType: "",
+	latitude: "38.5560075277",
+	longitude: "-121.466546282",
+	surveyCompletedBy: "MH/KF/KH",
+	surveyDate: "4/02/2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})
+	
+CREATE (PollingStation_5:PollingStation {ID: "5",
+	name: "Sandra J. Gallardo Elementary School",
+	address: "775 Russi Rd",
+	city: "Folsom",
+	county: "Sacramento",
+	precintNumber: "39423",
+	facilityType: "",
+	latitude: "38.6531511032",
+	longitude: "-121.159279194",
+	surveyCompletedBy: "KF/KH",
+	surveyDate: "April 15, 2015",
+	generalTerrain: "Hilly",
+	finalAccessibility: ""})
+	
+CREATE (PollingStation_6:PollingStation {ID: "6",
+	name: "Woodridge Elementary School",
+	address: "5761 Brett Dr",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "0022781",
+	facilityType: "",
+	latitude: "38.6726073032",
+	longitude: "-121.351170105",
+	surveyCompletedBy: "KF/KH",
+	surveyDate: "April 22, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})
+	
+	
+	
+ {answer:[], data:[], comments:[]}

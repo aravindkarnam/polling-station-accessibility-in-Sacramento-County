@@ -1,0 +1,393 @@
+MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n, r;
+
+CREATE CONSTRAINT ON (pollingStation:PollingStation) ASSERT pollingStation.name IS UNIQUE;
+
+CREATE (PollingStation_1:PollingStation {id: "1",
+	pollingPlaceName: "American Lakes Elementary School",
+	completeAddress: "2800 Stonecreek Dr, Sacramento, CA",
+	city: "Sacramento",
+	county: "Sacramento",
+	region: "CA",
+    locality: "CA",
+	postcode: "95833",
+	tel: "555-555-5555",
+	precintNumber: "18351",
+	facilityType: "",
+	website: "www.SacCounty.net",
+	email: "hello@SacCounty.net",
+	latitude: "38.6166813987",
+	longitude: "-121.493687077",
+	surveyCompletedBy: "MH/MJ",
+	surveyDate: "April 21, 2015",
+	generalTerrain: "Hilly",
+	finalAccessibility: "",
+	images: "[
+                ['https://i.imgur.com/O6QEpBs.jpg', 'The U.S. Capitol after the burning of Washington during the War of 1812'],
+                ['https://i.imgur.com/xND1MND.jpg', 'Ford Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
+                ['https://i.imgur.com/EKJmqui.jpg', 'The National Cherry Blossom Festival is celebrated around the city each spring.']
+            ]"})
+	
+CREATE (PPID_1:Option)
+
+CREATE
+  (PollingStation_1)-[:LINK_OPTIONS]->(PPID_1)
+	
+CREATE (PPID_1_ParkingArea:ParkingAreaOption)
+CREATE (PPID_1_PathOfTravel:PathOfTravelOption)
+CREATE (PPID_1_Doorways:DoorwaysOption)
+CREATE (PPID_1_Hallways:HallwaysOption)
+
+CREATE
+  (PPID_1)-[:LINK_PARKING_AREA]->(PPID_1_ParkingArea),
+  (PPID_1)-[:LINK_PATH_OF_TRAVEL]->(PPID_1_PathOfTravel),
+  (PPID_1)-[:LINK_DOORWAYS]->(PPID_1_Doorways),
+  (PPID_1)-[:LINK_HALLWAYS]->(PPID_1_Hallways)
+	
+CREATE (PPID_1_ParkingArea_Sub1:ParkingAreaSub1Option)
+CREATE (PPID_1_ParkingArea_Sub2:ParkingAreaSub2Option)
+CREATE (PPID_1_ParkingArea_Sub3:ParkingAreaSub3Option)
+
+CREATE
+  (PPID_1_ParkingArea)-[:LINK_PARKING_AREA_SUB1]->(PPID_1_ParkingArea_Sub1),
+  (PPID_1_ParkingArea)-[:LINK_PARKING_AREA_SUB2]->(PPID_1_ParkingArea_Sub2),
+  (PPID_1_ParkingArea)-[:LINK_PARKING_AREA_SUB3]->(PPID_1_ParkingArea_Sub3)
+	
+CREATE (PPID_1_PathOfTravel_Sub1:PathOfTravelSub1Option)
+CREATE (PPID_1_PathOfTravel_Sub2:PathOfTravelSub2Option)
+CREATE (PPID_1_PathOfTravel_Sub3:PathOfTravelSub3Option)
+
+CREATE
+  (PPID_1_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB1]->(PPID_1_PathOfTravel_Sub1),
+  (PPID_1_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB2]->(PPID_1_PathOfTravel_Sub2),
+  (PPID_1_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB3]->(PPID_1_PathOfTravel_Sub3)
+	
+CREATE (PPID_1_Doorways_Sub1:DoorwaysSub1Option)
+CREATE (PPID_1_Doorways_Sub2:DoorwaysSub2Option)
+
+CREATE
+  (PPID_1_Doorways)-[:LINK_DOORWAYS_SUB1]->(PPID_1_Doorways_Sub1),
+  (PPID_1_Doorways)-[:LINK_DOORWAYS_SUB2]->(PPID_1_Doorways_Sub2)
+	
+CREATE (PPID_1_Hallways_Sub1:HallwaysSub1Option)
+CREATE (PPID_1_Hallways_Sub2:HallwaysSub2Option)
+
+CREATE
+  (PPID_1_Hallways)-[:LINK_HALLWAYS_SUB1]->(PPID_1_Hallways_Sub1),
+  (PPID_1_Hallways)-[:LINK_HALLWAYS_SUB2]->(PPID_1_Hallways_Sub2)
+	
+CREATE
+  (PPID_1_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q1]->(PPID_1_Parking_Area_SUB_1_Q1:Boolean:Answer_Parking_Area_SUB_1_Q1 {value: true}),
+  (PPID_1_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q2]->(PPID_1_Parking_Area_SUB_1_Q2:Boolean:Answer_Parking_Area_SUB_1_Q2 {value: true}),
+  (PPID_1_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q3]->(PPID_1_Parking_Area_SUB_1_Q3:Boolean:Answer_Parking_Area_SUB_1_Q3 {value: true}),
+  (PPID_1_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q1]->(PPID_1_Parking_Area_SUB_2_Q1:Boolean:Answer_Parking_Area_SUB_2_Q1 {value: false}),
+  (PPID_1_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q2]->(PPID_1_Parking_Area_SUB_2_Q2:Boolean:Answer_Parking_Area_SUB_2_Q2 {value: true}),
+  (PPID_1_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q3]->(PPID_1_Parking_Area_SUB_2_Q3:Boolean:Answer_Parking_Area_SUB_2_Q3 {value: false}),
+  (PPID_1_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q1]->(PPID_1_Parking_Area_SUB_3_Q1:Boolean:Answer_Parking_Area_SUB_3_Q1 {value: true}),
+  (PPID_1_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q2]->(PPID_1_Parking_Area_SUB_3_Q2:Boolean:Answer_Parking_Area_SUB_3_Q2 {value: false}),
+  (PPID_1_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q3]->(PPID_1_Parking_Area_SUB_3_Q3:Boolean:Answer_Parking_Area_SUB_3_Q3 {value: false}),
+  (PPID_1_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q1]->(PPID_1_Path_Of_Travel_SUB_1_Q1:Boolean:Answer_Path_Of_Travel_SUB_1_Q1 {value: false}),
+  (PPID_1_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q2]->(PPID_1_Path_Of_Travel_SUB_1_Q2:Boolean:Answer_Path_Of_Travel_SUB_1_Q2 {value: true}),
+  (PPID_1_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q3]->(PPID_1_Path_Of_Travel_SUB_1_Q3:Boolean:Answer_Path_Of_Travel_SUB_1_Q3 {value: true}),
+  (PPID_1_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q1]->(PPID_1_Path_Of_Travel_SUB_2_Q1:Boolean:Answer_Path_Of_Travel_SUB_2_Q1 {value: false}),
+  (PPID_1_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q2]->(PPID_1_Path_Of_Travel_SUB_2_Q2:Boolean:Answer_Path_Of_Travel_SUB_2_Q2 {value: true}),
+  (PPID_1_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q3]->(PPID_1_Path_Of_Travel_SUB_2_Q3:Boolean:Answer_Path_Of_Travel_SUB_2_Q3 {value: true}),
+  (PPID_1_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q1]->(PPID_1_Path_Of_Travel_SUB_3_Q1:Boolean:Answer_Path_Of_Travel_SUB_3_Q1 {value: false}),
+  (PPID_1_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q2]->(PPID_1_Path_Of_Travel_SUB_3_Q2:Boolean:Answer_Path_Of_Travel_SUB_3_Q2 {value: false}),
+  (PPID_1_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q3]->(PPID_1_Path_Of_Travel_SUB_3_Q3:Boolean:Answer_Path_Of_Travel_SUB_3_Q3 {value: false}),
+  (PPID_1_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q1]->(PPID_1_Doorways_SUB_1_Q1:Boolean:Answer_Doorways_SUB_1_Q1 {value: true}),
+  (PPID_1_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q2]->(PPID_1_Doorways_SUB_1_Q2:Boolean:Answer_Doorways_SUB_1_Q2 {value: true}),
+  (PPID_1_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q3]->(PPID_1_Doorways_SUB_1_Q3:Boolean:Answer_Doorways_SUB_1_Q3 {value: true}),
+  (PPID_1_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q1]->(PPID_1_Doorways_SUB_2_Q1:Boolean:Answer_Doorways_SUB_2_Q1 {value: false}),
+  (PPID_1_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q2]->(PPID_1_Doorways_SUB_2_Q2:Boolean:Answer_Doorways_SUB_2_Q2 {value: true}),
+  (PPID_1_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q3]->(PPID_1_Doorways_SUB_2_Q3:Boolean:Answer_Doorways_SUB_2_Q3 {value: true}),
+  (PPID_1_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q1]->(PPID_1_Hallways_SUB_1_Q1:Boolean:Answer_Hallways_SUB_1_Q1 {value: false}),
+  (PPID_1_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q2]->(PPID_1_Hallways_SUB_1_Q2:Boolean:Answer_Hallways_SUB_1_Q2 {value: true}),
+  (PPID_1_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q3]->(PPID_1_Hallways_SUB_1_Q3:Boolean:Answer_Hallways_SUB_1_Q3 {value: false}),
+  (PPID_1_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q1]->(PPID_1_Hallways_SUB_2_Q1:Boolean:Answer_Hallways_SUB_2_Q1 {value: true}),
+  (PPID_1_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q2]->(PPID_1_Hallways_SUB_2_Q2:Boolean:Answer_Hallways_SUB_2_Q2 {value: false}),
+  (PPID_1_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q3]->(PPID_1_Hallways_SUB_2_Q3:Boolean:Answer_Hallways_SUB_2_Q3 {value: true})
+
+CREATE (PollingStation_2:PollingStation {id: "2",
+	pollingPlaceName: "Antelope Crossing Middle School",
+	completeAddress: "9200 Palmerson Dr, Sacramento, CA",
+	city: "Antelope",
+	county: "Sacramento",
+	region: "CA",
+    locality: "CA",
+	postcode: "95843",
+	tel: "555-555-5555",
+	precintNumber: "22090",
+	facilityType: "",
+	website: "www.SacCounty.net",
+	email: "hello@SacCounty.net",
+	latitude: "38.7177723911",
+	longitude: "-121.340532941",
+	surveyCompletedBy: "MH and MJ",
+	surveyDate: "March 30, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: "",
+    images: "[
+                  ['https://i.imgur.com/O6QEpBs.jpg', 'The U.S. Capitol after the burning of Washington during the War of 1812'],
+                  ['https://i.imgur.com/xND1MND.jpg', 'Ford Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
+                  ['https://i.imgur.com/EKJmqui.jpg', 'The National Cherry Blossom Festival is celebrated around the city each spring.']
+              ]"})
+
+CREATE (PPID_2:Option)
+
+CREATE
+  (PollingStation_2)-[:LINK_OPTIONS]->(PPID_2)
+
+CREATE (PPID_2_ParkingArea:ParkingAreaOption)
+CREATE (PPID_2_PathOfTravel:PathOfTravelOption)
+CREATE (PPID_2_Doorways:DoorwaysOption)
+CREATE (PPID_2_Hallways:HallwaysOption)
+
+CREATE
+  (PPID_2)-[:LINK_PARKING_AREA]->(PPID_2_ParkingArea),
+  (PPID_2)-[:LINK_PATH_OF_TRAVEL]->(PPID_2_PathOfTravel),
+  (PPID_2)-[:LINK_DOORWAYS]->(PPID_2_Doorways),
+  (PPID_2)-[:LINK_HALLWAYS]->(PPID_2_Hallways)
+
+CREATE (PPID_2_ParkingArea_Sub1:ParkingAreaSub1Option)
+CREATE (PPID_2_ParkingArea_Sub2:ParkingAreaSub2Option)
+CREATE (PPID_2_ParkingArea_Sub3:ParkingAreaSub3Option)
+
+CREATE
+  (PPID_2_ParkingArea)-[:LINK_PARKING_AREA_SUB1]->(PPID_2_ParkingArea_Sub1),
+  (PPID_2_ParkingArea)-[:LINK_PARKING_AREA_SUB2]->(PPID_2_ParkingArea_Sub2),
+  (PPID_2_ParkingArea)-[:LINK_PARKING_AREA_SUB3]->(PPID_2_ParkingArea_Sub3)
+
+CREATE (PPID_2_PathOfTravel_Sub1:PathOfTravelSub1Option)
+CREATE (PPID_2_PathOfTravel_Sub2:PathOfTravelSub2Option)
+CREATE (PPID_2_PathOfTravel_Sub3:PathOfTravelSub3Option)
+
+CREATE
+  (PPID_2_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB1]->(PPID_2_PathOfTravel_Sub1),
+  (PPID_2_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB2]->(PPID_2_PathOfTravel_Sub2),
+  (PPID_2_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB3]->(PPID_2_PathOfTravel_Sub3)
+
+CREATE (PPID_2_Doorways_Sub1:DoorwaysSub1Option)
+CREATE (PPID_2_Doorways_Sub2:DoorwaysSub2Option)
+
+CREATE
+  (PPID_2_Doorways)-[:LINK_DOORWAYS_SUB1]->(PPID_2_Doorways_Sub1),
+  (PPID_2_Doorways)-[:LINK_DOORWAYS_SUB2]->(PPID_2_Doorways_Sub2)
+
+CREATE (PPID_2_Hallways_Sub1:HallwaysSub1Option)
+CREATE (PPID_2_Hallways_Sub2:HallwaysSub2Option)
+
+CREATE
+  (PPID_2_Hallways)-[:LINK_HALLWAYS_SUB1]->(PPID_2_Hallways_Sub1),
+  (PPID_2_Hallways)-[:LINK_HALLWAYS_SUB2]->(PPID_2_Hallways_Sub2)
+
+CREATE
+  (PPID_2_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q1]->(PPID_2_Parking_Area_SUB_1_Q1:Boolean:Answer_Parking_Area_SUB_1_Q1 {value: false}),
+  (PPID_2_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q2]->(PPID_2_Parking_Area_SUB_1_Q2:Boolean:Answer_Parking_Area_SUB_1_Q2 {value: true}),
+  (PPID_2_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q3]->(PPID_2_Parking_Area_SUB_1_Q3:Boolean:Answer_Parking_Area_SUB_1_Q3 {value: true}),
+  (PPID_2_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q1]->(PPID_2_Parking_Area_SUB_2_Q1:Boolean:Answer_Parking_Area_SUB_2_Q1 {value: true}),
+  (PPID_2_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q2]->(PPID_2_Parking_Area_SUB_2_Q2:Boolean:Answer_Parking_Area_SUB_2_Q2 {value: true}),
+  (PPID_2_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q3]->(PPID_2_Parking_Area_SUB_2_Q3:Boolean:Answer_Parking_Area_SUB_2_Q3 {value: false}),
+  (PPID_2_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q1]->(PPID_2_Parking_Area_SUB_3_Q1:Boolean:Answer_Parking_Area_SUB_3_Q1 {value: false}),
+  (PPID_2_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q2]->(PPID_2_Parking_Area_SUB_3_Q2:Boolean:Answer_Parking_Area_SUB_3_Q2 {value: false}),
+  (PPID_2_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q3]->(PPID_2_Parking_Area_SUB_3_Q3:Boolean:Answer_Parking_Area_SUB_3_Q3 {value: false}),
+  (PPID_2_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q1]->(PPID_2_Path_Of_Travel_SUB_1_Q1:Boolean:Answer_Path_Of_Travel_SUB_1_Q1 {value: false}),
+  (PPID_2_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q2]->(PPID_2_Path_Of_Travel_SUB_1_Q2:Boolean:Answer_Path_Of_Travel_SUB_1_Q2 {value: true}),
+  (PPID_2_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q3]->(PPID_2_Path_Of_Travel_SUB_1_Q3:Boolean:Answer_Path_Of_Travel_SUB_1_Q3 {value: false}),
+  (PPID_2_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q1]->(PPID_2_Path_Of_Travel_SUB_2_Q1:Boolean:Answer_Path_Of_Travel_SUB_2_Q1 {value: false}),
+  (PPID_2_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q2]->(PPID_2_Path_Of_Travel_SUB_2_Q2:Boolean:Answer_Path_Of_Travel_SUB_2_Q2 {value: true}),
+  (PPID_2_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q3]->(PPID_2_Path_Of_Travel_SUB_2_Q3:Boolean:Answer_Path_Of_Travel_SUB_2_Q3 {value: true}),
+  (PPID_2_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q1]->(PPID_2_Path_Of_Travel_SUB_3_Q1:Boolean:Answer_Path_Of_Travel_SUB_3_Q1 {value: false}),
+  (PPID_2_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q2]->(PPID_2_Path_Of_Travel_SUB_3_Q2:Boolean:Answer_Path_Of_Travel_SUB_3_Q2 {value: false}),
+  (PPID_2_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q3]->(PPID_2_Path_Of_Travel_SUB_3_Q3:Boolean:Answer_Path_Of_Travel_SUB_3_Q3 {value: false}),
+  (PPID_2_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q1]->(PPID_2_Doorways_SUB_1_Q1:Boolean:Answer_Doorways_SUB_1_Q1 {value: true}),
+  (PPID_2_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q2]->(PPID_2_Doorways_SUB_1_Q2:Boolean:Answer_Doorways_SUB_1_Q2 {value: false}),
+  (PPID_2_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q3]->(PPID_2_Doorways_SUB_1_Q3:Boolean:Answer_Doorways_SUB_1_Q3 {value: true}),
+  (PPID_2_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q1]->(PPID_2_Doorways_SUB_2_Q1:Boolean:Answer_Doorways_SUB_2_Q1 {value: false}),
+  (PPID_2_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q2]->(PPID_2_Doorways_SUB_2_Q2:Boolean:Answer_Doorways_SUB_2_Q2 {value: true}),
+  (PPID_2_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q3]->(PPID_2_Doorways_SUB_2_Q3:Boolean:Answer_Doorways_SUB_2_Q3 {value: false}),
+  (PPID_2_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q1]->(PPID_2_Hallways_SUB_1_Q1:Boolean:Answer_Hallways_SUB_1_Q1 {value: false}),
+  (PPID_2_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q2]->(PPID_2_Hallways_SUB_1_Q2:Boolean:Answer_Hallways_SUB_1_Q2 {value: true}),
+  (PPID_2_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q3]->(PPID_2_Hallways_SUB_1_Q3:Boolean:Answer_Hallways_SUB_1_Q3 {value: false}),
+  (PPID_2_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q1]->(PPID_2_Hallways_SUB_2_Q1:Boolean:Answer_Hallways_SUB_2_Q1 {value: true}),
+  (PPID_2_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q2]->(PPID_2_Hallways_SUB_2_Q2:Boolean:Answer_Hallways_SUB_2_Q2 {value: false}),
+  (PPID_2_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q3]->(PPID_2_Hallways_SUB_2_Q3:Boolean:Answer_Hallways_SUB_2_Q3 {value: true})
+
+CREATE (PollingStation_3:PollingStation {id: "802",
+	pollingPlaceName: "Bowling Green Elementary School",
+	completeAddress: "4211 Turnbridge Dr, Sacramento, CA",
+	city: "Sacramento",
+	county: "Sacramento",
+    region: "CA",
+    locality: "CA",
+    postcode: "95823",
+	tel: "555-555-5555",
+	precintNumber: "0045878",
+	facilityType: "",
+	website: "www.SacCounty.net",
+	email: "hello@SacCounty.net",
+	latitude: "38.6560075277",
+	longitude: "-121.566546282",
+	surveyCompletedBy: "YB/KH",
+	surveyDate: "August 13, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: "",
+    images: "[
+                  ['https://i.imgur.com/O6QEpBs.jpg', 'The U.S. Capitol after the burning of Washington during the War of 1812'],
+                  ['https://i.imgur.com/xND1MND.jpg', 'Ford Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
+                  ['https://i.imgur.com/EKJmqui.jpg', 'The National Cherry Blossom Festival is celebrated around the city each spring.']
+              ]"})
+
+CREATE (PPID_3:Option)
+
+CREATE
+  (PollingStation_3)-[:LINK_OPTIONS]->(PPID_3)
+
+CREATE (PPID_3_ParkingArea:ParkingAreaOption)
+CREATE (PPID_3_PathOfTravel:PathOfTravelOption)
+CREATE (PPID_3_Doorways:DoorwaysOption)
+CREATE (PPID_3_Hallways:HallwaysOption)
+
+CREATE
+  (PPID_3)-[:LINK_PARKING_AREA]->(PPID_3_ParkingArea),
+  (PPID_3)-[:LINK_PATH_OF_TRAVEL]->(PPID_3_PathOfTravel),
+  (PPID_3)-[:LINK_DOORWAYS]->(PPID_3_Doorways),
+  (PPID_3)-[:LINK_HALLWAYS]->(PPID_3_Hallways)
+
+CREATE (PPID_3_ParkingArea_Sub1:ParkingAreaSub1Option)
+CREATE (PPID_3_ParkingArea_Sub2:ParkingAreaSub2Option)
+CREATE (PPID_3_ParkingArea_Sub3:ParkingAreaSub3Option)
+
+CREATE
+  (PPID_3_ParkingArea)-[:LINK_PARKING_AREA_SUB1]->(PPID_3_ParkingArea_Sub1),
+  (PPID_3_ParkingArea)-[:LINK_PARKING_AREA_SUB2]->(PPID_3_ParkingArea_Sub2),
+  (PPID_3_ParkingArea)-[:LINK_PARKING_AREA_SUB3]->(PPID_3_ParkingArea_Sub3)
+
+CREATE (PPID_3_PathOfTravel_Sub1:PathOfTravelSub1Option)
+CREATE (PPID_3_PathOfTravel_Sub2:PathOfTravelSub2Option)
+CREATE (PPID_3_PathOfTravel_Sub3:PathOfTravelSub3Option)
+
+CREATE
+  (PPID_3_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB1]->(PPID_3_PathOfTravel_Sub1),
+  (PPID_3_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB2]->(PPID_3_PathOfTravel_Sub2),
+  (PPID_3_PathOfTravel)-[:LINK_PATH_OF_TRAVEL_SUB3]->(PPID_3_PathOfTravel_Sub3)
+
+CREATE (PPID_3_Doorways_Sub1:DoorwaysSub1Option)
+CREATE (PPID_3_Doorways_Sub2:DoorwaysSub2Option)
+
+CREATE
+  (PPID_3_Doorways)-[:LINK_DOORWAYS_SUB1]->(PPID_3_Doorways_Sub1),
+  (PPID_3_Doorways)-[:LINK_DOORWAYS_SUB2]->(PPID_3_Doorways_Sub2)
+
+CREATE (PPID_3_Hallways_Sub1:HallwaysSub1Option)
+CREATE (PPID_3_Hallways_Sub2:HallwaysSub2Option)
+
+CREATE
+  (PPID_3_Hallways)-[:LINK_HALLWAYS_SUB1]->(PPID_3_Hallways_Sub1),
+  (PPID_3_Hallways)-[:LINK_HALLWAYS_SUB2]->(PPID_3_Hallways_Sub2)
+
+CREATE
+  (PPID_3_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q1]->(PPID_3_Parking_Area_SUB_1_Q1:Boolean:Answer_Parking_Area_SUB_1_Q1 {value: false}),
+  (PPID_3_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q2]->(PPID_3_Parking_Area_SUB_1_Q2:Boolean:Answer_Parking_Area_SUB_1_Q2 {value: true}),
+  (PPID_3_ParkingArea_Sub1)-[:LINK_PARKING_AREA_SUB_1_Q3]->(PPID_3_Parking_Area_SUB_1_Q3:Boolean:Answer_Parking_Area_SUB_1_Q3 {value: true}),
+  (PPID_3_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q1]->(PPID_3_Parking_Area_SUB_2_Q1:Boolean:Answer_Parking_Area_SUB_2_Q1 {value: true}),
+  (PPID_3_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q2]->(PPID_3_Parking_Area_SUB_2_Q2:Boolean:Answer_Parking_Area_SUB_2_Q2 {value: true}),
+  (PPID_3_ParkingArea_Sub2)-[:LINK_PARKING_AREA_SUB_2_Q3]->(PPID_3_Parking_Area_SUB_2_Q3:Boolean:Answer_Parking_Area_SUB_2_Q3 {value: false}),
+  (PPID_3_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q1]->(PPID_3_Parking_Area_SUB_3_Q1:Boolean:Answer_Parking_Area_SUB_3_Q1 {value: false}),
+  (PPID_3_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q2]->(PPID_3_Parking_Area_SUB_3_Q2:Boolean:Answer_Parking_Area_SUB_3_Q2 {value: false}),
+  (PPID_3_ParkingArea_Sub3)-[:LINK_PARKING_AREA_SUB_3_Q3]->(PPID_3_Parking_Area_SUB_3_Q3:Boolean:Answer_Parking_Area_SUB_3_Q3 {value: false}),
+  (PPID_3_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q1]->(PPID_3_Path_Of_Travel_SUB_1_Q1:Boolean:Answer_Path_Of_Travel_SUB_1_Q1 {value: false}),
+  (PPID_3_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q2]->(PPID_3_Path_Of_Travel_SUB_1_Q2:Boolean:Answer_Path_Of_Travel_SUB_1_Q2 {value: true}),
+  (PPID_3_PathOfTravel_Sub1)-[:LINK_PATH_OF_TRAVEL_SUB_1_Q3]->(PPID_3_Path_Of_Travel_SUB_1_Q3:Boolean:Answer_Path_Of_Travel_SUB_1_Q3 {value: false}),
+  (PPID_3_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q1]->(PPID_3_Path_Of_Travel_SUB_2_Q1:Boolean:Answer_Path_Of_Travel_SUB_2_Q1 {value: false}),
+  (PPID_3_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q2]->(PPID_3_Path_Of_Travel_SUB_2_Q2:Boolean:Answer_Path_Of_Travel_SUB_2_Q2 {value: true}),
+  (PPID_3_PathOfTravel_Sub2)-[:LINK_PATH_OF_TRAVEL_SUB_2_Q3]->(PPID_3_Path_Of_Travel_SUB_2_Q3:Boolean:Answer_Path_Of_Travel_SUB_2_Q3 {value: true}),
+  (PPID_3_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q1]->(PPID_3_Path_Of_Travel_SUB_3_Q1:Boolean:Answer_Path_Of_Travel_SUB_3_Q1 {value: false}),
+  (PPID_3_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q2]->(PPID_3_Path_Of_Travel_SUB_3_Q2:Boolean:Answer_Path_Of_Travel_SUB_3_Q2 {value: false}),
+  (PPID_3_PathOfTravel_Sub3)-[:LINK_PATH_OF_TRAVEL_SUB_3_Q3]->(PPID_3_Path_Of_Travel_SUB_3_Q3:Boolean:Answer_Path_Of_Travel_SUB_3_Q3 {value: false}),
+  (PPID_3_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q1]->(PPID_3_Doorways_SUB_1_Q1:Boolean:Answer_Doorways_SUB_1_Q1 {value: true}),
+  (PPID_3_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q2]->(PPID_3_Doorways_SUB_1_Q2:Boolean:Answer_Doorways_SUB_1_Q2 {value: false}),
+  (PPID_3_Doorways_Sub1)-[:LINK_DOORWAYS_SUB_1_Q3]->(PPID_3_Doorways_SUB_1_Q3:Boolean:Answer_Doorways_SUB_1_Q3 {value: true}),
+  (PPID_3_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q1]->(PPID_3_Doorways_SUB_2_Q1:Boolean:Answer_Doorways_SUB_2_Q1 {value: false}),
+  (PPID_3_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q2]->(PPID_3_Doorways_SUB_2_Q2:Boolean:Answer_Doorways_SUB_2_Q2 {value: true}),
+  (PPID_3_Doorways_Sub2)-[:LINK_DOORWAYS_SUB_2_Q3]->(PPID_3_Doorways_SUB_2_Q3:Boolean:Answer_Doorways_SUB_2_Q3 {value: false}),
+  (PPID_3_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q1]->(PPID_3_Hallways_SUB_1_Q1:Boolean:Answer_Hallways_SUB_1_Q1 {value: false}),
+  (PPID_3_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q2]->(PPID_3_Hallways_SUB_1_Q2:Boolean:Answer_Hallways_SUB_1_Q2 {value: true}),
+  (PPID_3_Hallways_Sub1)-[:LINK_HALLWAYS_SUB_1_Q3]->(PPID_3_Hallways_SUB_1_Q3:Boolean:Answer_Hallways_SUB_1_Q3 {value: false}),
+  (PPID_3_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q1]->(PPID_3_Hallways_SUB_2_Q1:Boolean:Answer_Hallways_SUB_2_Q1 {value: true}),
+  (PPID_3_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q2]->(PPID_3_Hallways_SUB_2_Q2:Boolean:Answer_Hallways_SUB_2_Q2 {value: false}),
+  (PPID_3_Hallways_Sub2)-[:LINK_HALLWAYS_SUB_2_Q3]->(PPID_3_Hallways_SUB_2_Q3:Boolean:Answer_Hallways_SUB_2_Q3 {value: true})
+
+CREATE (PollingStation_4:PollingStation {id: "4",
+	pollingPlaceName: "Sacramento High Charter School",
+	completeAddress: "2315 34th St, Sacramento, CA",
+	city: "Sacramento",
+	county: "Sacramento",
+    region: "CA",
+    locality: "CA",
+    postcode: "95817",
+	tel: "555-555-5555",
+	precintNumber: "42883",
+	facilityType: "",
+	website: "www.SacCounty.net",
+	email: "hello@SacCounty.net",
+	latitude: "38.5560075277",
+	longitude: "-121.466546282",
+	surveyCompletedBy: "MH/KF/KH",
+	surveyDate: "4/02/2015",
+	generalTerrain: "Flat",
+	finalAccessibility: "",
+    images: "[
+                  ['https://i.imgur.com/O6QEpBs.jpg', 'The U.S. Capitol after the burning of Washington during the War of 1812'],
+                  ['https://i.imgur.com/xND1MND.jpg', 'Ford Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
+                  ['https://i.imgur.com/EKJmqui.jpg', 'The National Cherry Blossom Festival is celebrated around the city each spring.']
+              ]"})
+
+CREATE (PollingStation_5:PollingStation {id: "5",
+	pollingPlaceName: "Sandra J. Gallardo Elementary School",
+	completeAddress: "775 Russi Rd, Sacramento, CA",
+	city: "Folsom",
+    region: "CA",
+    locality: "CA",
+    postcode: "95630",
+	tel: "555-555-5555",
+	county: "Sacramento",
+	precintNumber: "39423",
+	facilityType: "",
+	website: "www.SacCounty.net",
+	email: "hello@SacCounty.net",
+	latitude: "38.6531511032",
+	longitude: "-121.159279194",
+	surveyCompletedBy: "KF/KH",
+	surveyDate: "April 15, 2015",
+	generalTerrain: "Hilly",
+	finalAccessibility: "",
+    images: "[
+                  ['https://i.imgur.com/O6QEpBs.jpg', 'The U.S. Capitol after the burning of Washington during the War of 1812'],
+                  ['https://i.imgur.com/xND1MND.jpg', 'Ford Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
+                  ['https://i.imgur.com/EKJmqui.jpg', 'The National Cherry Blossom Festival is celebrated around the city each spring.']
+              ]"})
+
+CREATE (PollingStation_6:PollingStation {id: "6",
+	pollingPlaceName: "Woodridge Elementary School",
+	completeAddress: "5761 Brett Dr, Sacramento, CA",
+	city: "Sacramento",
+	county: "Sacramento",
+    region: "CA",
+    locality: "CA",
+    postcode: "95842",
+	tel: "555-555-5555",
+	precintNumber: "0022781",
+	facilityType: "",
+	website: "www.SacCounty.net",
+	email: "hello@SacCounty.net",
+	latitude: "38.6726073032",
+	longitude: "-121.351170105",
+	surveyCompletedBy: "KF/KH",
+	surveyDate: "April 22, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: "",
+    images: "[
+                  ['https://i.imgur.com/O6QEpBs.jpg', 'The U.S. Capitol after the burning of Washington during the War of 1812'],
+                  ['https://i.imgur.com/xND1MND.jpg', 'Ford Theatre in the 19th century, site of the 1865 assassination of President Lincoln'],
+                  ['https://i.imgur.com/EKJmqui.jpg', 'The National Cherry Blossom Festival is celebrated around the city each spring.']
+              ]"})

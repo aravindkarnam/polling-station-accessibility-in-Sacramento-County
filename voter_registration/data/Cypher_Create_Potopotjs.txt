@@ -1,0 +1,233 @@
+MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n, r;
+
+CREATE (PollingStation_1:PollingStation {id: "1",
+	name: "American Lakes Elementary School",
+	address: "2800 Stonecreek Dr",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "18351",
+	facilityType: "",
+	latitude: "38.6166813987",
+	longitude: "-121.493687077",
+	surveyCompletedBy: "MH/MJ",
+	surveyDate: "April 21, 2015",
+	generalTerrain: "Hilly",
+	finalAccessibility: ""})
+	
+CREATE (Option_1:Option)
+
+CREATE
+  (PollingStation_1)-[:OPTIONS]->(Option_1)
+	
+CREATE (Option_1_ParkingArea:Option)
+CREATE (Option_1_PathOfTravel:Option)
+CREATE (Option_1_Doorways:Option)
+CREATE (Option_1_Hallways:Option)
+
+CREATE
+  (Option_1)-[:PARKING_AREA]->(Option_1_ParkingArea),
+  (Option_1)-[:PATH_OF_TRAVEL]->(Option_1_PathOfTravel),
+  (Option_1)-[:DOORWAYS]->(Option_1_Doorways),
+  (Option_1)-[:HALLWAYS]->(Option_1_Hallways)
+	
+CREATE
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_1_Q1]->(Node_PollingStation_1_Parking_Area_SUB_1_Q1:Boolean:Answer_Parking_Area_SUB_1_Q1 {value: true}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_1_Q2]->(Node_PollingStation_1_Parking_Area_SUB_1_Q2:Boolean:Answer_Parking_Area_SUB_1_Q2 {value: true}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_1_Q3]->(Node_PollingStation_1_Parking_Area_SUB_1_Q3:Boolean:Answer_Parking_Area_SUB_1_Q3 {value: true}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_2_Q1]->(Node_PollingStation_1_Parking_Area_SUB_2_Q1:Boolean:Answer_Parking_Area_SUB_2_Q1 {value: false}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_2_Q2]->(Node_PollingStation_1_Parking_Area_SUB_2_Q2:Boolean:Answer_Parking_Area_SUB_2_Q2 {value: true}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_2_Q3]->(Node_PollingStation_1_Parking_Area_SUB_2_Q3:Boolean:Answer_Parking_Area_SUB_2_Q3 {value: false}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_3_Q1]->(Node_PollingStation_1_Parking_Area_SUB_3_Q1:Boolean:Answer_Parking_Area_SUB_3_Q1 {value: true}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_3_Q2]->(Node_PollingStation_1_Parking_Area_SUB_3_Q2:Boolean:Answer_Parking_Area_SUB_3_Q2 {value: false}),
+  (Option_1_ParkingArea)-[:Parking_Area_SUB_3_Q3]->(Node_PollingStation_1_Parking_Area_SUB_3_Q3:Boolean:Answer_Parking_Area_SUB_3_Q3 {value: false}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q1]->(Node_PollingStation_1_Path_Of_Travel_SUB_1_Q1:Boolean:Answer_Path_Of_Travel_SUB_1_Q1 {value: false}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q2]->(Node_PollingStation_1_Path_Of_Travel_SUB_1_Q2:Boolean:Answer_Path_Of_Travel_SUB_1_Q2 {value: true}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q3]->(Node_PollingStation_1_Path_Of_Travel_SUB_1_Q3:Boolean:Answer_Path_Of_Travel_SUB_1_Q3 {value: true}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q1]->(Node_PollingStation_1_Path_Of_Travel_SUB_2_Q1:Boolean:Answer_Path_Of_Travel_SUB_2_Q1 {value: false}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q2]->(Node_PollingStation_1_Path_Of_Travel_SUB_2_Q2:Boolean:Answer_Path_Of_Travel_SUB_2_Q2 {value: true}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q3]->(Node_PollingStation_1_Path_Of_Travel_SUB_2_Q3:Boolean:Answer_Path_Of_Travel_SUB_2_Q3 {value: true}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q1]->(Node_PollingStation_1_Path_Of_Travel_SUB_3_Q1:Boolean:Answer_Path_Of_Travel_SUB_3_Q1 {value: false}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q2]->(Node_PollingStation_1_Path_Of_Travel_SUB_3_Q2:Boolean:Answer_Path_Of_Travel_SUB_3_Q2 {value: false}),
+  (Option_1_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q3]->(Node_PPollingStation_1_ath_Of_Travel_SUB_3_Q3:Boolean:Answer_Path_Of_Travel_SUB_3_Q3 {value: false}),
+  (Option_1_Doorways)-[:Doorways_SUB_1_Q1]->(Node_PollingStation_1_Doorways_SUB_1_Q1:Boolean:Answer_Doorways_SUB_1_Q1 {value: true}),
+  (Option_1_Doorways)-[:Doorways_SUB_1_Q2]->(Node_PollingStation_1_Doorways_SUB_1_Q2:Boolean:Answer_Doorways_SUB_1_Q2 {value: true}),
+  (Option_1_Doorways)-[:Doorways_SUB_1_Q3]->(Node_PollingStation_1_Doorways_SUB_1_Q3:Boolean:Answer_Doorways_SUB_1_Q3 {value: true}),
+  (Option_1_Doorways)-[:Doorways_SUB_2_Q1]->(Node_PollingStation_1_Doorways_SUB_2_Q1:Boolean:Answer_Doorways_SUB_2_Q1 {value: false}),
+  (Option_1_Doorways)-[:Doorways_SUB_2_Q2]->(Node_PollingStation_1_Doorways_SUB_2_Q2:Boolean:Answer_Doorways_SUB_2_Q2 {value: true}),
+  (Option_1_Doorways)-[:Doorways_SUB_2_Q3]->(Node_PollingStation_1_Doorways_SUB_2_Q3:Boolean:Answer_Doorways_SUB_2_Q3 {value: true}),
+  (Option_1_Hallways)-[:Hallways_SUB_1_Q1]->(Node_PollingStation_1_Hallways_SUB_1_Q1:Boolean:Answer_Hallways_SUB_1_Q1 {value: false}),
+  (Option_1_Hallways)-[:Hallways_SUB_1_Q2]->(Node_PollingStation_1_Hallways_SUB_1_Q2:Boolean:Answer_Hallways_SUB_1_Q2 {value: true}),
+  (Option_1_Hallways)-[:Hallways_SUB_1_Q3]->(Node_PollingStation_1_Hallways_SUB_1_Q3:Boolean:Answer_Hallways_SUB_1_Q3 {value: false}),
+  (Option_1_Hallways)-[:Hallways_SUB_2_Q1]->(Node_PollingStation_1_Hallways_SUB_2_Q1:Boolean:Answer_Hallways_SUB_2_Q1 {value: true}),
+  (Option_1_Hallways)-[:Hallways_SUB_2_Q2]->(Node_PollingStation_1_Hallways_SUB_2_Q2:Boolean:Answer_Hallways_SUB_2_Q2 {value: false}),
+  (Option_1_Hallways)-[:Hallways_SUB_2_Q3]->(Node_PollingStation_1_Hallways_SUB_2_Q3:Boolean:Answer_Hallways_SUB_2_Q3 {value: true})
+  
+CREATE (PollingStation_2:PollingStation {id: "2",
+	name: "Antelope Crossing Middle School",
+	address: "9200 Palmerson Dr",
+	city: "Antelope",
+	county: "Sacramento",
+	precintNumber: "22090",
+	facilityType: "",
+	latitude: "38.7177723911",
+	longitude: "-121.340532941",
+	surveyCompletedBy: "MH and MJ",
+	surveyDate: "March 30, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})
+	
+CREATE (Option_2:Option)
+
+CREATE
+  (PollingStation_2)-[:OPTIONS]->(Option_2)
+	
+CREATE (Option_2_ParkingArea:Option)
+CREATE (Option_2_PathOfTravel:Option)
+CREATE (Option_2_Doorways:Option)
+CREATE (Option_2_Hallways:Option)
+
+CREATE
+  (Option_2)-[:PARKING_AREA]->(Option_2_ParkingArea),
+  (Option_2)-[:PATH_OF_TRAVEL]->(Option_2_PathOfTravel),
+  (Option_2)-[:DOORWAYS]->(Option_2_Doorways),
+  (Option_2)-[:HALLWAYS]->(Option_2_Hallways)
+	
+CREATE
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_1_Q1]->(Node_PollingStation_2_Parking_Area_SUB_1_Q1:Boolean:Answer_Parking_Area_SUB_1_Q1 {value: true}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_1_Q2]->(Node_PollingStation_2_Parking_Area_SUB_1_Q2:Boolean:Answer_Parking_Area_SUB_1_Q2 {value: false}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_1_Q3]->(Node_PollingStation_2_Parking_Area_SUB_1_Q3:Boolean:Answer_Parking_Area_SUB_1_Q3 {value: true}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_2_Q1]->(Node_PollingStation_2_Parking_Area_SUB_2_Q1:Boolean:Answer_Parking_Area_SUB_2_Q1 {value: true}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_2_Q2]->(Node_PollingStation_2_Parking_Area_SUB_2_Q2:Boolean:Answer_Parking_Area_SUB_2_Q2 {value: false}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_2_Q3]->(Node_PollingStation_2_Parking_Area_SUB_2_Q3:Boolean:Answer_Parking_Area_SUB_2_Q3 {value: true}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_3_Q1]->(Node_PollingStation_2_Parking_Area_SUB_3_Q1:Boolean:Answer_Parking_Area_SUB_3_Q1 {value: true}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_3_Q2]->(Node_PollingStation_2_Parking_Area_SUB_3_Q2:Boolean:Answer_Parking_Area_SUB_3_Q2 {value: true}),
+  (Option_2_ParkingArea)-[:Parking_Area_SUB_3_Q3]->(Node_PollingStation_2_Parking_Area_SUB_3_Q3:Boolean:Answer_Parking_Area_SUB_3_Q3 {value: false}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q1]->(Node_PollingStation_2_Path_Of_Travel_SUB_1_Q1:Boolean:Answer_Path_Of_Travel_SUB_1_Q1 {value: true}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q2]->(Node_PollingStation_2_Path_Of_Travel_SUB_1_Q2:Boolean:Answer_Path_Of_Travel_SUB_1_Q2 {value: true}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q3]->(Node_PollingStation_2_Path_Of_Travel_SUB_1_Q3:Boolean:Answer_Path_Of_Travel_SUB_1_Q3 {value: false}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q1]->(Node_PollingStation_2_Path_Of_Travel_SUB_2_Q1:Boolean:Answer_Path_Of_Travel_SUB_2_Q1 {value: true}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q2]->(Node_PollingStation_2_Path_Of_Travel_SUB_2_Q2:Boolean:Answer_Path_Of_Travel_SUB_2_Q2 {value: false}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q3]->(Node_PollingStation_2_Path_Of_Travel_SUB_2_Q3:Boolean:Answer_Path_Of_Travel_SUB_2_Q3 {value: true}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q1]->(Node_PollingStation_2_Path_Of_Travel_SUB_3_Q1:Boolean:Answer_Path_Of_Travel_SUB_3_Q1 {value: false}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q2]->(Node_PollingStation_2_Path_Of_Travel_SUB_3_Q2:Boolean:Answer_Path_Of_Travel_SUB_3_Q2 {value: true}),
+  (Option_2_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q3]->(Node_PollingStation_2_Path_Of_Travel_SUB_3_Q3:Boolean:Answer_Path_Of_Travel_SUB_3_Q3 {value: false}),
+  (Option_2_Doorways)-[:Doorways_SUB_1_Q1]->(Node_PollingStation_2_Doorways_SUB_1_Q1:Boolean:Answer_Doorways_SUB_1_Q1 {value: true}),
+  (Option_2_Doorways)-[:Doorways_SUB_1_Q2]->(Node_PollingStation_2_Doorways_SUB_1_Q2:Boolean:Answer_Doorways_SUB_1_Q2 {value: false}),
+  (Option_2_Doorways)-[:Doorways_SUB_1_Q3]->(Node_PollingStation_2_Doorways_SUB_1_Q3:Boolean:Answer_Doorways_SUB_1_Q3 {value: true}),
+  (Option_2_Doorways)-[:Doorways_SUB_2_Q1]->(Node_PollingStation_2_Doorways_SUB_2_Q1:Boolean:Answer_Doorways_SUB_2_Q1 {value: false}),
+  (Option_2_Doorways)-[:Doorways_SUB_2_Q2]->(Node_PollingStation_2_Doorways_SUB_2_Q2:Boolean:Answer_Doorways_SUB_2_Q2 {value: false}),
+  (Option_2_Doorways)-[:Doorways_SUB_2_Q3]->(Node_PollingStation_2_Doorways_SUB_2_Q3:Boolean:Answer_Doorways_SUB_2_Q3 {value: true}),
+  (Option_2_Hallways)-[:Hallways_SUB_1_Q1]->(Node_PollingStation_2_Hallways_SUB_1_Q1:Boolean:Answer_Hallways_SUB_1_Q1 {value: false}),
+  (Option_2_Hallways)-[:Hallways_SUB_1_Q2]->(Node_PollingStation_2_Hallways_SUB_1_Q2:Boolean:Answer_Hallways_SUB_1_Q2 {value: true}),
+  (Option_2_Hallways)-[:Hallways_SUB_1_Q3]->(Node_PollingStation_2_Hallways_SUB_1_Q3:Boolean:Answer_Hallways_SUB_1_Q3 {value: false}),
+  (Option_2_Hallways)-[:Hallways_SUB_2_Q1]->(Node_PollingStation_2_Hallways_SUB_2_Q1:Boolean:Answer_Hallways_SUB_2_Q1 {value: false}),
+  (Option_2_Hallways)-[:Hallways_SUB_2_Q2]->(Node_PollingStation_2_Hallways_SUB_2_Q2:Boolean:Answer_Hallways_SUB_2_Q2 {value: true}),
+  (Option_2_Hallways)-[:Hallways_SUB_2_Q3]->(Node_PollingStation_2_Hallways_SUB_2_Q3:Boolean:Answer_Hallways_SUB_2_Q3 {value: false})
+  
+CREATE (PollingStation_3:PollingStation {id: "802",
+	name: "Bowling Green Elementary School",
+	address: "4211 Turnbridge Dr",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "0045878",
+	facilityType: "",
+	latitude: "",
+	longitude: "",
+	surveyCompletedBy: "YB/KH",
+	surveyDate: "August 13, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})
+	
+CREATE (Option_3:Option)
+
+CREATE
+  (PollingStation_3)-[:OPTIONS]->(Option_3)
+	
+CREATE (Option_3_ParkingArea:Option)
+CREATE (Option_3_PathOfTravel:Option)
+CREATE (Option_3_Doorways:Option)
+CREATE (Option_3_Hallways:Option)
+
+CREATE
+  (Option_3)-[:PARKING_AREA]->(Option_3_ParkingArea),
+  (Option_3)-[:PATH_OF_TRAVEL]->(Option_3_PathOfTravel),
+  (Option_3)-[:DOORWAYS]->(Option_3_Doorways),
+  (Option_3)-[:HALLWAYS]->(Option_3_Hallways)
+	
+CREATE
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_1_Q1]->(Node_PollingStation_3_Parking_Area_SUB_1_Q1:Boolean:Answer_Parking_Area_SUB_1_Q1 {value: true}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_1_Q2]->(Node_PollingStation_3_Parking_Area_SUB_1_Q2:Boolean:Answer_Parking_Area_SUB_1_Q2 {value: false}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_1_Q3]->(Node_PollingStation_3_Parking_Area_SUB_1_Q3:Boolean:Answer_Parking_Area_SUB_1_Q3 {value: true}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_2_Q1]->(Node_PollingStation_3_Parking_Area_SUB_2_Q1:Boolean:Answer_Parking_Area_SUB_2_Q1 {value: true}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_2_Q2]->(Node_PollingStation_3_Parking_Area_SUB_2_Q2:Boolean:Answer_Parking_Area_SUB_2_Q2 {value: false}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_2_Q3]->(Node_PollingStation_3_Parking_Area_SUB_2_Q3:Boolean:Answer_Parking_Area_SUB_2_Q3 {value: true}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_3_Q1]->(Node_PollingStation_3_Parking_Area_SUB_3_Q1:Boolean:Answer_Parking_Area_SUB_3_Q1 {value: true}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_3_Q2]->(Node_PollingStation_3_Parking_Area_SUB_3_Q2:Boolean:Answer_Parking_Area_SUB_3_Q2 {value: true}),
+  (Option_3_ParkingArea)-[:Parking_Area_SUB_3_Q3]->(Node_PollingStation_3_Parking_Area_SUB_3_Q3:Boolean:Answer_Parking_Area_SUB_3_Q3 {value: false}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q1]->(Node_PollingStation_3_Path_Of_Travel_SUB_1_Q1:Boolean:Answer_Path_Of_Travel_SUB_1_Q1 {value: true}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q2]->(Node_PollingStation_3_Path_Of_Travel_SUB_1_Q2:Boolean:Answer_Path_Of_Travel_SUB_1_Q2 {value: true}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_1_Q3]->(Node_PollingStation_3_Path_Of_Travel_SUB_1_Q3:Boolean:Answer_Path_Of_Travel_SUB_1_Q3 {value: false}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q1]->(Node_PollingStation_3_Path_Of_Travel_SUB_2_Q1:Boolean:Answer_Path_Of_Travel_SUB_2_Q1 {value: true}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q2]->(Node_PollingStation_3_Path_Of_Travel_SUB_2_Q2:Boolean:Answer_Path_Of_Travel_SUB_2_Q2 {value: false}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_2_Q3]->(Node_PollingStation_3_Path_Of_Travel_SUB_2_Q3:Boolean:Answer_Path_Of_Travel_SUB_2_Q3 {value: true}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q1]->(Node_PollingStation_3_Path_Of_Travel_SUB_3_Q1:Boolean:Answer_Path_Of_Travel_SUB_3_Q1 {value: false}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q2]->(Node_PollingStation_3_Path_Of_Travel_SUB_3_Q2:Boolean:Answer_Path_Of_Travel_SUB_3_Q2 {value: true}),
+  (Option_3_PathOfTravel)-[:Path_Of_Travel_SUB_3_Q3]->(Node_PollingStation_3_Path_Of_Travel_SUB_3_Q3:Boolean:Answer_Path_Of_Travel_SUB_3_Q3 {value: false}),
+  (Option_3_Doorways)-[:Doorways_SUB_1_Q1]->(Node_PollingStation_3_Doorways_SUB_1_Q1:Boolean:Answer_Doorways_SUB_1_Q1 {value: true}),
+  (Option_3_Doorways)-[:Doorways_SUB_1_Q2]->(Node_PollingStation_3_Doorways_SUB_1_Q2:Boolean:Answer_Doorways_SUB_1_Q2 {value: false}),
+  (Option_3_Doorways)-[:Doorways_SUB_1_Q3]->(Node_PollingStation_3_Doorways_SUB_1_Q3:Boolean:Answer_Doorways_SUB_1_Q3 {value: true}),
+  (Option_3_Doorways)-[:Doorways_SUB_2_Q1]->(Node_PollingStation_3_Doorways_SUB_2_Q1:Boolean:Answer_Doorways_SUB_2_Q1 {value: false}),
+  (Option_3_Doorways)-[:Doorways_SUB_2_Q2]->(Node_PollingStation_3_Doorways_SUB_2_Q2:Boolean:Answer_Doorways_SUB_2_Q2 {value: false}),
+  (Option_3_Doorways)-[:Doorways_SUB_2_Q3]->(Node_PollingStation_3_Doorways_SUB_2_Q3:Boolean:Answer_Doorways_SUB_2_Q3 {value: true}),
+  (Option_3_Hallways)-[:Hallways_SUB_1_Q1]->(Node_PollingStation_3_Hallways_SUB_1_Q1:Boolean:Answer_Hallways_SUB_1_Q1 {value: false}),
+  (Option_3_Hallways)-[:Hallways_SUB_1_Q2]->(Node_PollingStation_3_Hallways_SUB_1_Q2:Boolean:Answer_Hallways_SUB_1_Q2 {value: true}),
+  (Option_3_Hallways)-[:Hallways_SUB_1_Q3]->(Node_PollingStation_3_Hallways_SUB_1_Q3:Boolean:Answer_Hallways_SUB_1_Q3 {value: false}),
+  (Option_3_Hallways)-[:Hallways_SUB_2_Q1]->(Node_PollingStation_3_Hallways_SUB_2_Q1:Boolean:Answer_Hallways_SUB_2_Q1 {value: false}),
+  (Option_3_Hallways)-[:Hallways_SUB_2_Q2]->(Node_PollingStation_3_Hallways_SUB_2_Q2:Boolean:Answer_Hallways_SUB_2_Q2 {value: true}),
+  (Option_3_Hallways)-[:Hallways_SUB_2_Q3]->(Node_PollingStation_3_Hallways_SUB_2_Q3:Boolean:Answer_Hallways_SUB_2_Q3 {value: false})
+	
+CREATE (PollingStation_4:PollingStation {id: "4",
+	name: "Sacramento High Charter School",
+	address: "2315 34th Street",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "42883",
+	facilityType: "",
+	latitude: "38.5560075277",
+	longitude: "-121.466546282",
+	surveyCompletedBy: "MH/KF/KH",
+	surveyDate: "4/02/2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})
+	
+CREATE (PollingStation_5:PollingStation {id: "5",
+	name: "Sandra J. Gallardo Elementary School",
+	address: "775 Russi Rd",
+	city: "Folsom",
+	county: "Sacramento",
+	precintNumber: "39423",
+	facilityType: "",
+	latitude: "38.6531511032",
+	longitude: "-121.159279194",
+	surveyCompletedBy: "KF/KH",
+	surveyDate: "April 15, 2015",
+	generalTerrain: "Hilly",
+	finalAccessibility: ""})
+	
+CREATE (PollingStation_6:PollingStation {id: "6",
+	name: "Woodridge Elementary School",
+	address: "5761 Brett Dr",
+	city: "Sacramento",
+	county: "Sacramento",
+	precintNumber: "0022781",
+	facilityType: "",
+	latitude: "38.6726073032",
+	longitude: "-121.351170105",
+	surveyCompletedBy: "KF/KH",
+	surveyDate: "April 22, 2015",
+	generalTerrain: "Flat",
+	finalAccessibility: ""})
+	
+	
+	
+ {answer:[], data:[], comments:[]}
